@@ -7,10 +7,19 @@
 ## 0️⃣ 시작하기 전에
 
 - 이 저장소를 **Fork** → 로컬에 **Clone**
+- **`dev` 브랜치를 만들고 그 위에서 작업합니다** (지난주와 동일한 3브랜치 전략)
+  ```
+  git checkout -b dev
+  ```
 - 파일 3개를 미리 만들어둡니다: `index.html`, `style.css`, `script.js`
 - VS Code에서 GitHub Copilot이 켜져 있는지 확인 (우측 하단 아이콘)
 
 > 💡 오늘 만드는 결과물은 완성 예시와 똑같을 필요 없습니다. 구조(섹션 5개)만 같으면 색상, 문구, 회사명은 자유롭게 바꿔도 됩니다.
+>
+> 🌿 **브랜치 전략 (지난주 복습)**
+> - `main`: 원본 그대로 보존
+> - `dev`: 오늘 실습 작업은 전부 여기서
+> - `gh-pages`: 완성 후 배포용 (dev를 merge)
 
 ## 1️⃣ 기본 골격 만들기
 
@@ -178,20 +187,27 @@ nav 안의 .nav-links 메뉴를, 화면이 좁아지면
 
 지난주와 동일한 방식으로 배포합니다.
 
-1. `main` 브랜치에 최종 커밋 push
-2. 저장소 **Settings → Pages**에서 배포 브랜치 확인
-3. 배포된 URL 접속해서 정상 동작 확인
+1. `dev` 브랜치에서 작업 내용을 커밋
+2. `gh-pages` 브랜치를 만들고 `dev`를 merge
+   ```
+   git checkout -b gh-pages
+   git merge dev
+   git push origin gh-pages
+   ```
+3. 저장소 **Settings → Pages**에서 배포 브랜치를 `gh-pages`로 확인
+4. 배포된 URL 접속해서 정상 동작 확인
 
 ## 7️⃣ 제출 (Pull Request)
 
-1. 본인 저장소에서 **Contribute** → **Open pull request**
-2. 원본 저장소(`hitech26-w4-web-inline`)의 `main` 브랜치로 PR
+1. 본인 저장소에서 `dev` 브랜치로 이동한 뒤 **Contribute** → **Open pull request**
+2. 원본 저장소(`hitech26-w4-web-inline`)의 `main` 브랜치로, **`dev` 브랜치 기준**으로 PR
 3. 제목에 이름 포함 (예: `[홍길동] 보안회사 웹사이트(인라인) 제출`)
 
 > 💡 이 PR은 실제로 Merge되지 않는 제출용입니다.
 
 ## ✅ 오늘 완성 체크
 
+- [ ] `dev` 브랜치를 만들고 그 위에서 작업했다
 - [ ] `!` + Tab으로 HTML 기본구조를 만들었다
 - [ ] `style.css`, `script.js`가 `index.html`에 연결되어 있다
 - [ ] `index.html` / `style.css` / `script.js` 3개 파일로 구성했다
@@ -199,7 +215,7 @@ nav 안의 .nav-links 메뉴를, 화면이 좁아지면
 - [ ] JS 인터랙션이 최소 1개 동작한다
 - [ ] 나만의 색상/문구로 개인화했다
 - [ ] GitHub Pages로 배포하고 링크 접속을 확인했다
-- [ ] `main` 브랜치로 조직 저장소에 PR을 제출했다
+- [ ] `dev` 브랜치 기준으로 조직 저장소에 PR을 제출했다
 
 ## ❓ 자주 묻는 질문 FAQ
 
